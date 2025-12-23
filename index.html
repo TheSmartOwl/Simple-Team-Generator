@@ -49,16 +49,16 @@
     </script>
     <div id='app'>
       <h1>Simple Team Generator</h1>
-	  <input type="range" min="1" max="2" v-model:value="layers" class="slider" id="layers"><br><br>
-	  <input type="range" min="2" max="4" v-model:value="teams" class="slider" id="teams"><br><br>
+	  Layers: {{layers}} <input type="range" min="1" max="2" v-model:value="layers" class="slider" id="layers"><br><br>
+	  Teams: {{teams}} <input type="range" min="2" max="4" v-model:value="teams" class="slider" id="teams"><br><br>
 	  <div id="layer1" v-show='layers == 1'>
-        <input type="text" v-model:value="names.layer1_in"><br><br>
+        Names: <input type="text" v-model:value="names.layer1_in"><br><br>
 	    <button @click="names.layer1_out=split_into_teams(get_names(names.layer1_in),2)">Run</button><br><br>
         {{names.layer1_out}}
 	  </div>
 	  <div id="layer1" v-show='layers == 2'>
-        <input type="text" v-model:value="names.layer1_in"><br><br>
-		<input type="text" v-model:value="names.layer2_in"><br><br>
+        Names: <input type="text" v-model:value="names.layer1_in"><br><br>
+		Names: <input type="text" v-model:value="names.layer2_in"><br><br>
 	    <button @click="names.layer1_out=split_into_teams(get_names(names.layer1_in),teams); names.layer2_out=split_into_teams(get_names(names.layer2_in),teams)">Run</button><br><br>
         {{names.layer1_out}}
 		{{names.layer2_out}}
