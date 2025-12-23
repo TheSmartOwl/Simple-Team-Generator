@@ -1,7 +1,7 @@
 <html>
   <head>
     <style>
-      * { font-size: 28px; font-family: Georgia; text-align: center}
+      * { font-size: 46px; font-family: Georgia; text-align: center}
       h1, p { color: #f0f0f0 }
       body { background-color: #1D1E22; color: #f0f0f0 }
     </style>
@@ -60,9 +60,9 @@
         Names: <input type="text" v-model:value="names.layer1_in"><br><br>
 		Names: <input type="text" v-model:value="names.layer2_in"><br><br>
 	    <button @click="names.layer1_out=split_into_teams(get_names(names.layer1_in),teams); names.layer2_out=split_into_teams(get_names(names.layer2_in),teams)">Run</button><br><br>
-        {{names.layer1_out}}
-		{{names.layer2_out}}
-		{{combine_at_index(names.layer1_out, names.layer2_out)}}
+		<p v-for="(team, index) in combine_at_index(names.layer1_out, names.layer2_out)" :key="index">
+          Team {{index}}: {{team}}
+		</p>
 	  </div>
     </div>
   </body>
