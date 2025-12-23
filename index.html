@@ -34,7 +34,7 @@
 			})
 			return groups
 		  },
-		  combine_at_index(arr1, arr2): {
+		  combine_at_index(arr1, arr2) {
 			const max_length = Math.max(arr1.length, arr2.length)
 			const result = []
 			for (let i = 0; i < max_length; i++) {
@@ -42,7 +42,7 @@
 			  const b = arr2[i] || []
 			  result.push([...a, ...b])
 		    }
-			  return result
+			return result
 		  }
         }
       })
