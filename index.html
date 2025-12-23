@@ -52,13 +52,15 @@
 	  Layers: {{layers}} <input type="range" min="1" max="2" v-model:value="layers" class="slider" id="layers"><br><br>
 	  Teams: {{teams}} <input type="range" min="2" max="4" v-model:value="teams" class="slider" id="teams"><br><br>
 	  <div id="layer1" v-show='layers == 1'>
-        Names: <input type="text" v-model:value="names.layer1_in"><br><br>
-	    <button @click="names.layer1_out=split_into_teams(get_names(names.layer1_in),2)">Run</button><br><br>
-        {{names.layer1_out}}
+        Names: <input type="text" v-model:value="names.layer1_in" placeholder="Bob,Joe,Simon,John"><br><br>
+	    <button @click="names.layer1_out=split_into_teams(get_names(names.layer1_in),teams)">Run</button><br><br>
+		<p v-for="(team, index) in names.layer1_out" :key="index">
+          Team {{index}}: {{team}}
+		</p>
 	  </div>
 	  <div id="layer1" v-show='layers == 2'>
-        Names: <input type="text" v-model:value="names.layer1_in"><br><br>
-		Names: <input type="text" v-model:value="names.layer2_in"><br><br>
+        Names: <input type="text" v-model:value="names.layer1_in" placeholder="Bob,Joe"><br><br>
+		Names: <input type="text" v-model:value="names.layer2_in" placeholder="Simon,John"><br><br>
 	    <button @click="names.layer1_out=split_into_teams(get_names(names.layer1_in),teams); names.layer2_out=split_into_teams(get_names(names.layer2_in),teams)">Run</button><br><br>
 		<p v-for="(team, index) in combine_at_index(names.layer1_out, names.layer2_out)" :key="index">
           Team {{index}}: {{team}}
